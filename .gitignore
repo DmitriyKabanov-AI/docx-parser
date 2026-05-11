@@ -1,0 +1,21 @@
+﻿# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Выходные данные
+output_json/
+output_excel/
+logs/
+
+# Входные данные (пользовательские)
+input_docs/
+!input_docs/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
