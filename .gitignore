@@ -19,3 +19,6 @@ input_docs/
 # OS
 .DS_Store
 Thumbs.db
+# Входные данные (папка для пользователя, но без содержимого)
+input_docs/*
+!input_docs/.gitkeep
