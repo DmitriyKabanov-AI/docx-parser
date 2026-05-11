@@ -3,13 +3,16 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Выходные данные
-output_json/
-output_excel/
-logs/
+# Выходные данные (игнорируем содержимое, но не папки)
+output_json/*
+!output_json/.gitkeep
+output_excel/*
+!output_excel/.gitkeep
+logs/*
+!logs/.gitkeep
 
-# Входные данные (пользовательские)
-input_docs/
+# Входные данные (игнорируем содержимое, но не папку и не .gitkeep)
+input_docs/*
 !input_docs/.gitkeep
 
 # IDE
@@ -19,6 +22,3 @@ input_docs/
 # OS
 .DS_Store
 Thumbs.db
-# Входные данные (папка для пользователя, но без содержимого)
-input_docs/*
-!input_docs/.gitkeep
