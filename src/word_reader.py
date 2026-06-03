@@ -48,33 +48,6 @@ def get_all_docx_files(directory: str) -> list:
     logger.info(f"Найдено {len(files)} .docx файлов в {directory}")
     return files
 
-
-def split_text_into_chunks(text: str, max_chunk_size: int = 3000) -> list:
-    """
-    Разбивает текст на части, чтобы не превышать лимит токенов GigaChat.
-    """
-    lines = text.split("\n")
-    chunks = []
-    current_chunk = []
-    current_size = 0
-
-    for line in lines:
-        line_size = len(line)
-        if current_size + line_size > max_chunk_size and current_chunk:
-            chunks.append("\n".join(current_chunk))
-            current_chunk = [line]
-            current_size = line_size
-        else:
-            current_chunk.append(line)
-            current_size += line_size
-
-    if current_chunk:
-        chunks.append("\n".join(current_chunk))
-
-    logger.info(f"Текст разбит на {len(chunks)} частей")
-    return chunks
-
-
 # Тестовая функция
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
@@ -87,7 +60,7 @@ if __name__ == "__main__":
     
     if files:
         print(f"✅ Найдено файлов: {len(files)}")
-        for f in files[:3]:  # Покажем первые 3
+        for f in files[:5]:
             print(f"  - {os.path.basename(f)}")
     else:
         print(f"❌ Нет .docx файлов в {test_dir}")

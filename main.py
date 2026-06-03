@@ -8,6 +8,10 @@ import json
 import logging
 import warnings
 from datetime import datetime
+from src.word_reader import get_all_docx_files
+from src.docx_table_parser import extract_all_specifications
+from src.excel_writer import create_excel_from_json
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
 warnings.filterwarnings('ignore')
 os.environ['PYTHONWARNINGS'] = 'ignore'
@@ -24,11 +28,6 @@ os.makedirs(INPUT_DIR, exist_ok=True)
 os.makedirs(OUTPUT_JSON_DIR, exist_ok=True)
 os.makedirs(OUTPUT_EXCEL_DIR, exist_ok=True)
 os.makedirs(LOGS_DIR, exist_ok=True)
-
-# Импорты модулей проекта
-from word_reader import get_all_docx_files
-from docx_table_parser import extract_all_specifications
-from excel_writer import create_excel_from_json
 
 
 def setup_logging():
@@ -124,7 +123,7 @@ def process_documents():
                 all_data.extend(file_data)
                 logger.info(f"  ✅ {len(file_data)} записей")
             else:
-                logger.warning(f"  ⚠️ Данные не извлечены")
+                logger.warning(" Данные не извлечены")
                 
         except Exception as e:
             logger.error(f"Ошибка: {e}")

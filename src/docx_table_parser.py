@@ -4,8 +4,6 @@
 
 import logging
 from docx import Document
-from docx.table import Table
-from docx.text.paragraph import Paragraph
 
 logger = logging.getLogger(__name__)
 
@@ -101,7 +99,7 @@ def tables_to_json_format(tables_data: list, source_name: str) -> list:
     }
     
     for table in tables_data:
-        headers = [h.lower() for h in table["headers"]]
+        
         
         for row in table["rows"]:
             item = {
